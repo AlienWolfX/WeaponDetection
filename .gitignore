@@ -6,3 +6,5 @@ main.spec
 yolov5s.pt
 gun.pt
 no_weapons.png
+*.pptx
+last.pt

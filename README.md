@@ -1,26 +1,57 @@
 # Project Name
 
-A brief description of your project.
+GuardianEye is a vigilant tool harnessing advanced computer vision to swiftly detect and alert against potential threats, ensuring safety and security with precision.
 
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
+- [Documentation](#documentation)
+    - [Performance Evaluation](#performance)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
+```
+pip install -r requirements.txt
+```
 
+For Windows:
 
+```
+python3 main.py
+```
 
-## Usage
+For GNU/Linux:
 
-Instructions on how to use your project and any relevant examples.
+```
+python main.py
+```
 
-## Contributing
+# Documentation
+This section underlines the ano of the code
 
-Guidelines for contributing to your project, including how to report issues and submit pull requests.
+### Performance
+| Metric                | Value  |
+|-----------------------|--------|
+| Average Processing Time | 0.1146 seconds |
+| Average CPU Usage     | 24.9%  |
+| Average Memory Usage  | 76.4 Mb  |
+
+### Confusion Matrix
+
+![Confusion](images/confusion.png)
+
+### Metrics
+
+![Metrics](images/graphs.png)
+
 
 ## License
 
-Information about the license for your project.
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
