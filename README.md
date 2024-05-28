@@ -21,13 +21,19 @@ To install GuardianEye, follow these steps:
 
 ## Usage
 
-To use GuardianEye, execute the following command: `python main.py`
+To use GuardianEye, execute the following command: 
+
+For GNU/Linux:
+`python3 main.py`
+
+For Windows:
+`python main.py`
 
 ## Documentation
 
 ### Performance Evaluation
 
-GuardianEye's performance is evaluated based on the following metrics:
+GuardianEye's overall performance is evaluated based on the following metrics:
 
 | Metric                | Value  |
 |-----------------------|--------|
@@ -40,14 +46,6 @@ GuardianEye's performance is evaluated based on the following metrics:
 The dataset used for training was annotated using Roboflow. The following image shows the split of the dataset:
 
 ![Dataset Split](images/split.png)
-
-The model's performance during training is visualized using a confusion matrix and various metrics:
-
-#### Confusion Matrix
-![Confusion Matrix](images/confusion.png)
-
-#### Metrics
-![Training Metrics](images/graphs.png)
 
 ## License
 

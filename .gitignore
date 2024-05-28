@@ -10,3 +10,4 @@ no_weapons.png
 *.pptx
 last.pt
 .env
+*.pyc
