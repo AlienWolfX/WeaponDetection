@@ -1,56 +1,57 @@
-# Project Name
+# GuardianEye
 
-GuardianEye is a vigilant tool harnessing advanced computer vision to swiftly detect and alert against potential threats, ensuring safety and security with precision.
+GuardianEye is a powerful tool that leverages advanced computer vision techniques to swiftly detect and alert against potential threats, ensuring safety and security with precision.
 
 ## Table of Contents
 
 - [Installation](#installation)
+- [Usage](#usage)
 - [Documentation](#documentation)
-    - [Performance Evaluation](#performance)
-- [Contributing](#contributing)
+    - [Performance Evaluation](#performance-evaluation)
+    - [Training](#training)
 - [License](#license)
 
 ## Installation
-```
-pip install -r requirements.txt
-```
 
-For Windows:
+To install GuardianEye, follow these steps:
 
-```
-python3 main.py
-```
+1. Clone the repository: `git clone https://github.com/AlienWolfX/WeaponDetection.git`
+2. Navigate to the cloned directory: `cd WeaponDetection`
+3. Install the required libraries: `pip install -r requirements.txt`
 
-For GNU/Linux:
+## Usage
 
-```
-python main.py
-```
+To use GuardianEye, execute the following command: `python main.py`
 
-# Documentation
-This section underlines the ano of the code
+## Documentation
 
-### Performance
+### Performance Evaluation
+
+GuardianEye's performance is evaluated based on the following metrics:
+
 | Metric                | Value  |
 |-----------------------|--------|
 | Average Processing Time | 0.1146 seconds |
 | Average CPU Usage     | 24.9%  |
 | Average Memory Usage  | 76.4 Mb  |
 
-### Confusion Matrix
+### Training
 
-![Confusion](images/confusion.png)
+The dataset used for training was annotated using Roboflow. The following image shows the split of the dataset:
 
-### Metrics
+![Dataset Split](images/split.png)
 
-![Metrics](images/graphs.png)
+The model's performance during training is visualized using a confusion matrix and various metrics:
 
+#### Confusion Matrix
+![Confusion Matrix](images/confusion.png)
+
+#### Metrics
+![Training Metrics](images/graphs.png)
 
 ## License
 
-MIT License
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+GuardianEye is licensed under the MIT License. You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 

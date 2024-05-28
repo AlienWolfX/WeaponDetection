@@ -131,7 +131,7 @@ class GuardianEye(QWidget):
     def updateFrame(self):
         """ 
         This method updates the frame and displays the detected objects.
-        the lines commented are for performance evaluation
+        the lines commented are used for performance evaluation
         """
         start_time = time.time()
         ret, frame = self.cap.read()
