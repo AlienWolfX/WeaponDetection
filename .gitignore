@@ -1,6 +1,7 @@
 build/*
 dist/*
 .venv/*
+.env/*
 *.mp4
 main.spec
 yolov5s.pt
@@ -8,3 +9,4 @@ gun.pt
 no_weapons.png
 *.pptx
 last.pt
+.env

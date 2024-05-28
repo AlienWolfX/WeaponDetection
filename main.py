@@ -2,6 +2,7 @@ import sys
 import cv2
 import torch
 import time
+import os
 import psutil
 import numpy as np
 from PyQt5.QtWidgets import (
@@ -19,7 +20,17 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtGui import QPixmap, QImage, QFont, QIcon
 from PyQt5.QtCore import QTimer, Qt
+from twilio.rest import Client
+from dotenv import load_dotenv
 
+load_dotenv()
+
+twilio_sid = os.getenv('TWILIO_ACCOUNT_SID')
+twilio_auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+twilio_phone_number = os.getenv('TWILIO_PHONE_NUMBER')
+to_phone_number = os.getenv('TO_PHONE_NUMBER')
+
+twilio_client = Client(twilio_sid, twilio_auth_token)
 
 class GuardianEye(QWidget):
     def __init__(self):
@@ -31,7 +42,7 @@ class GuardianEye(QWidget):
         self.model = torch.hub.load(
             "ultralytics/yolov5", "custom", path="model/guns.pt"
         )
-        self.model.conf = 0.48
+        self.model.conf = 0.52
         self.cap = None
         self.timer = QTimer()
         self.timer.timeout.connect(self.updateFrame)
@@ -115,16 +126,10 @@ class GuardianEye(QWidget):
             self.cap = cv2.VideoCapture(file_name)
 
     def startDetection(self):
-        """ 
-        This method starts the detection process.
-        """
         if self.cap is not None and self.cap.isOpened():
             self.timer.start(30)
 
     def stopDetection(self):
-        """ 
-        This method stops the detection process.
-        """
         self.timer.stop()
 
 
@@ -158,6 +163,12 @@ class GuardianEye(QWidget):
             detected_classes = [results.names[int(x[-1])] for x in results.xyxy[0]]
             if "pistol" in detected_classes or "gun" in detected_classes:
                 self.text_label.setText("Gun Detected!, call 911 immediately!")
+                self.timer.stop()
+                message = twilio_client.messages.create(
+                    body="Emergency Alert: A gun has been detected. Please evacuate the premises immediately!.",
+                    from_=twilio_phone_number,
+                    to=to_phone_number
+                )
             else:
                 self.text_label.setText("No Gun Detected")
         else:
