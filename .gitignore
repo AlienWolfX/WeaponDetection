@@ -11,3 +11,5 @@ no_weapons.png
 last.pt
 .env
 *.pyc
+.vscode/*
+test.txt
