@@ -1,56 +1,81 @@
-# GuardianEye
+# GuardianEye - A Weapon Detection Application
 
-GuardianEye is a powerful tool that leverages advanced computer vision techniques to swiftly detect and alert against potential threats, ensuring safety and security with precision.
+## 1. Introduction
+GuardianEye is a sophisticated computer vision application designed to detect weapons, particularly guns, in video streams. This report provides an in-depth analysis of the project's theoretical foundations, development methodologies, implementation details, and performance evaluation.
 
-## Table of Contents
+## 2. Theoretical Foundations
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Documentation](#documentation)
-    - [Performance Evaluation](#performance-evaluation)
-    - [Training](#training)
-- [License](#license)
+### 2.1 Computer Vision
+Computer vision, a branch of artificial intelligence, empowers machines to interpret and comprehend the visual world. By analyzing digital images and videos, computer vision systems can accurately identify and classify objects.
 
-## Installation
+### 2.2 Object Detection
+Object detection involves identifying and locating objects within images or videos. Traditional methods such as Haar Cascades and modern deep learning-based approaches like YOLO (You Only Look Once) are commonly used for this task.
 
-To install GuardianEye, follow these steps:
+### 2.3 YOLO Algorithm
+YOLO is a state-of-the-art, real-time object detection system that treats object detection as a single regression problem. By predicting bounding box coordinates and class probabilities directly from image pixels, YOLO achieves high accuracy and processing speed.
 
-1. Clone the repository: `git clone https://github.com/AlienWolfX/WeaponDetection.git`
-2. Navigate to the cloned directory: `cd WeaponDetection`
-3. Install the required libraries: `pip install -r requirements.txt`
+## 3. Development Methodologies
 
-## Usage
+### 3.1 Agile Development
+The project embraced Agile methodologies to foster iterative progress, ensuring continuous feedback loops and adaptability to evolving requirements.
 
-To use GuardianEye, execute the following command: 
+### 3.2 Data Collection and Preprocessing
+A diverse dataset containing annotated images of weapons was collected from various sources. Data augmentation techniques were applied to enhance dataset diversity and size.
 
-For GNU/Linux:
-`python3 main.py`
+### 3.3 Model Training
+The YOLOv5s model was selected. Training was conducted on Google Colab utilizing it's free GPU resources for faster computation.
 
-For Windows:
-`python main.py`
+## 4. Implementation Details
 
-## Documentation
+### 4.1 Software Architecture
+The application was developed using Python and integrated with PyQt5 for the graphical user interface. YOLOv5 served as the real-time weapon detection model.
 
-### Performance Evaluation
+### 4.2 Core Components
+- **Model Integration:** YOLOv5 model was seamlessly integrated using the `torch.hub` module.
+- **Video Processing:** OpenCV facilitated video capture and frame processing.
+- **GUI Development:** PyQt5 provided robust tools for designing the user interface.
 
-GuardianEye's overall performance is evaluated based on the following metrics:
+### 4.3 User Interface
+The user interface featured functionalities for uploading video files, initiating and halting detection, and displaying real-time results.
 
-| Metric                | Value  |
-|-----------------------|--------|
-| Average Processing Time | 0.1146 seconds |
-| Average CPU Usage     | 24.9%  |
-| Average Memory Usage  | 76.4 Mb  |
+## 5. Performance Evaluation
 
-### Training
+### 5.1 Accuracy and Detection Rate
+Model accuracy and detection rate were evaluated using a comprehensive test set. Metrics like precision, recall, and F1-score were computed to assess performance.
 
-The dataset used for training was annotated using Roboflow. The following image shows the split of the dataset:
+### 5.2 Computational Performance
+Performance analysis was conducted on CPU configuration only. Limitations imposed by the absence of CUDA-capable hardware impacts real-time processing capabilities.
 
-![Dataset Split](images/split.png)
+### 5.3 Key Findings
+- **False Positives:** Occasional false positives were observed due to the limited dataset and varying video angles.
+- **Hardware Constraints:** The absence of CUDA-enabled devices hampered video processing performance, highlighting the need for improved hardware infrastructure.
+- **Quality:** The quality of the video significantly impacts the accuracy of the detection process. It has been observed that videos with lower resolution tend to produce more false positives. Here are some common resolutions and their impact:
 
-## License
+    - **480p (SD): 854x480** - This resolution provides a balance between quality and performance. However, it may still produce some false positives.
 
-GuardianEye is licensed under the MIT License. You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    - **360p (SD): 640x360** - At this resolution, the accuracy of detection decreases, leading to a higher number of false positives.
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    - **240p (SD): 426x240** - This is the lowest resolution tested, and it resulted in the highest number of false positives. It is not recommended for accurate detection.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## 6. Challenges and Limitations
+
+### 6.1 Dataset Limitations
+The project encountered challenges related to the limited dataset, leading to occasional false positives. Expanding the dataset and incorporating diverse scenarios is essential for improving model accuracy.
+
+### 6.2 Hardware Limitations
+The absence of CUDA-enabled hardware posed significant limitations on processing speed and efficiency. Future endeavors should prioritize hardware upgrades to enhance real-time detection capabilities.
+
+## 7. Future Work
+
+### 7.1 Dataset Expansion
+Enhancing the dataset by including additional classes like assault rifles, submachine guns, and shotguns will improve model robustness and accuracy.
+
+### 7.2 Hardware Upgrades
+Leveraging CUDA-capable devices and exploring hardware acceleration techniques like OpenCL will enhance processing speed and efficiency.
+
+### 7.3 Integrating Additional Sensors
+Combining visual data with other sensor inputs will augment detection accuracy and reliability, facilitating the development of comprehensive surveillance systems.
+
+## 8. Conclusion
+GuardianEye represents a significant advancement in computer vision applications for public safety. Despite challenges, the project lays the foundation for future enhancements in accuracy, performance, and real-world deployment.
+
