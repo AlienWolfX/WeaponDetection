@@ -9,6 +9,7 @@ gun.pt
 no_weapons.png
 *.pptx
 last.pt
+best.pt
 .env
 *.pyc
 .vscode/*
